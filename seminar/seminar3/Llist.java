@@ -1,38 +1,39 @@
-package algorithms.seminar;
+package algorithms.seminar.seminar3;
 
 public class Llist {
     static Node head;
-    static class Node{
+
+    static class Node {
         int value;
         Node next;
     }
 
-    public static void pushFront(int value){
+    public static void pushFront(int value) {
         Node node = new Node();
         node.value = value;
         node.next = head;
         head = node;
     }
 
-    public static void popFront(){
-        if(head != null){
+    public static void popFront() {
+        if (head != null) {
             head = head.next;
         }
     }
 
-    public static void print(){
+    public static void print() {
         Node node = head;
-        while(node != null){
+        while (node != null) {
             System.out.print(node.value + " ");
             node = node.next;
         }
         System.out.println();
     }
 
-    public static boolean find(int value){
+    public static boolean find(int value) {
         Node node = head;
-        while(node != null){
-            if(node.value == value){
+        while (node != null) {
+            if (node.value == value) {
                 return true;
             }
             node = node.next;
@@ -40,15 +41,15 @@ public class Llist {
         return false;
     }
 
-    public static void pushBack(int value){
+    public static void pushBack(int value) {
         Node node = new Node();
         node.value = value;
 
-        if(head == null){
+        if (head == null) {
             head = node;
-        }else{
+        } else {
             Node cur = head;
-            while(cur.next != null){
+            while (cur.next != null) {
                 cur = cur.next;
             }
             cur.next = node;
@@ -56,11 +57,11 @@ public class Llist {
 
     }
 
-    public static void popBack(){
-        if(head != null){
-            if(head.next == null){
+    public static void popBack() {
+        if (head != null) {
+            if (head.next == null) {
                 head = null;
-            }else {
+            } else {
                 Node cur = head;
                 while (cur.next.next != null) {
                     cur = cur.next;

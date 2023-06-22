@@ -1,49 +1,50 @@
-package algorithms.seminar;
+package algorithms.seminar.seminar3;
 
 public class ListNode {
     static Node head;
     static Node tail;
-    static class Node{
+
+    static class Node {
         int value;
         Node next;
         Node prev;
     }
 
-    public static void pushFront(int value){
+    public static void pushFront(int value) {
         Node node = new Node();
         node.value = value;
 
-        if(head == null){
+        if (head == null) {
             tail = node;
-        }else{
+        } else {
             node.next = head;
             head.prev = node;
         }
         head = node;
     }
 
-    public static void popFront(){
-        if(head != null && head.next != null){
+    public static void popFront() {
+        if (head != null && head.next != null) {
             head = head.next;
-        }else{
+        } else {
             tail = null;
             head = null;
         }
     }
 
-    public static void print(){
+    public static void print() {
         Node node = head;
-        while(node != null){
+        while (node != null) {
             System.out.print(node.value + " ");
             node = node.next;
         }
         System.out.println();
     }
 
-    public static boolean find(int value){
+    public static boolean find(int value) {
         Node node = head;
-        while(node != null){
-            if(node.value == value){
+        while (node != null) {
+            if (node.value == value) {
                 return true;
             }
             node = node.next;
@@ -51,13 +52,13 @@ public class ListNode {
         return false;
     }
 
-    public static void pushBack(int value){
+    public static void pushBack(int value) {
         Node node = new Node();
         node.value = value;
 
-        if(tail == null){
+        if (tail == null) {
             head = node;
-        }else{
+        } else {
             node.prev = tail;
             tail.next = node;
         }
@@ -65,24 +66,24 @@ public class ListNode {
 
     }
 
-    public static void popBack(){
-        if(tail != null && tail.prev != null){
+    public static void popBack() {
+        if (tail != null && tail.prev != null) {
             tail = tail.prev;
             tail.next = null;
-        }else{
+        } else {
             tail = null;
             head = null;
         }
     }
 
-    public static void sort(){
+    public static void sort() {
         boolean needSort = true;
-        do{
+        do {
             needSort = false;
-            if(head != null) {
+            if (head != null) {
                 Node node = head;
                 while (node != null && node.next != null) {
-                    if(node.value > node.next.value){
+                    if (node.value > node.next.value) {
                         Node before = node.prev;
                         Node cur = node;
                         Node next = node.next;
@@ -93,15 +94,15 @@ public class ListNode {
                         next.next = cur;
                         next.prev = before;
 
-                        if(after != null){
+                        if (after != null) {
                             after.prev = cur;
-                        }else{
+                        } else {
                             tail = cur;
                         }
 
-                        if(before != null){
+                        if (before != null) {
                             before.next = next;
-                        }else{
+                        } else {
                             head = next;
                         }
 
@@ -110,7 +111,7 @@ public class ListNode {
                     node = node.next;
                 }
             }
-        }while(needSort);
+        } while (needSort);
     }
 
 }
